@@ -42,6 +42,7 @@ print(classification_report(y_test, predictions))
 '''
 
 ### K-NEAREST NEIGHBORS ###
+'''
 from sklearn.datasets import load_iris
 from knn import KNN
 
@@ -51,6 +52,19 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33)
 
 model = KNN()
 
+model.fit(X_train, y_train)
+predictions = model.predict(X_test)
+print(classification_report(y_test, predictions))
+'''
+
+### NAIVE BAYES CLASSIFIER ###
+from sklearn.datasets import load_wine
+from naive_bayes import NaiveBayesClassifier
+
+X, y = load_wine(return_X_y=True)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33)
+
+model = NaiveBayesClassifier()
 model.fit(X_train, y_train)
 predictions = model.predict(X_test)
 print(classification_report(y_test, predictions))
